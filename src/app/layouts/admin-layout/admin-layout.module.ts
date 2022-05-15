@@ -11,7 +11,7 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { PlainSurveyComponent } from '../../pages/plain-survey/plain-survey.component';
-import { DropzoneComponent } from '../../pages/dropzone/dropzone.component';
+import { UsersAccountComponent } from '../../pages/users-account/users-account.component';
 
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
@@ -40,7 +40,7 @@ import {NgApexchartsModule} from 'ng-apexcharts';
     DashboardComponent,
     TablesComponent,
     PlainSurveyComponent,
-    DropzoneComponent
+    UsersAccountComponent
   ]
 })
 

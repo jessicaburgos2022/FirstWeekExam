@@ -5,16 +5,21 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
-  selector: 'app-dropzone',
-  templateUrl: './dropzone.component.html',
-  styleUrls: ['./dropzone.component.scss']
+  selector: 'app-users-account',
+  templateUrl: './users-account.component.html',
+  styleUrls: ['./users-account.component.scss']
 })
-export class DropzoneComponent implements OnInit {
+export class UsersAccountComponent implements OnInit {
 
   files: File[] = [];
   public isCollapsed = false;
   public isMenuCollapsed = true;
   closeResult = '';
+
+  isUpload: boolean = false;
+  isAddUser: boolean = false;
+
+
   constructor(private http: HttpClient, private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -44,12 +49,21 @@ onRemove(event) {
 
 
 open(content) {
-  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  this.modalService.open(content, {centered: true, windowClass: 'modal-addUser', size: 'sm'}).result.then((result) => {
     this.closeResult = `Closed with: ${result}`;
   }, (reason) => {
     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
   });
 }
+
+openuploadModal(contentUpload) {
+  this.modalService.open(contentUpload, {centered: true, windowClass: 'modal-UploadUser', size: 'md'}).result.then((result) => {
+    this.closeResult = `Closed with: ${result}`;
+  }, (reason) => {
+    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  });
+}
+
 
 
 private getDismissReason(reason: any): string {
